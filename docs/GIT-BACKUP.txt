@@ -1,0 +1,13 @@
+﻿Backing up this project to GitHub
+==================================
+
+One-time setup
+  1. create an EMPTY repository at https://github.com/new
+     (no README, no .gitignore, no licence - this project already has them)
+  2. run:
+        powershell -File scripts\github-publish.ps1 -RemoteUrl <the URL it shows>
+
+Everyday backup after that
+  git add --all
+  git commit -m "what changed"
+  git push

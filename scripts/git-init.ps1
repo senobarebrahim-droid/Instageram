@@ -18,36 +18,13 @@ $ErrorActionPreference = 'Stop'
 $projectRoot = Split-Path -Parent $PSScriptRoot
 Write-Host "project root : $projectRoot"
 
-# Find git. A freshly installed Git updates the machine PATH, but an already
-# open terminal keeps the old value, so the usual install locations are checked
-# as well instead of declaring Git missing.
-function Find-Git {
-    $command = Get-Command git -ErrorAction SilentlyContinue
-    if ($command) { return $command.Source }
-
-    $candidates = @(
-        (Join-Path $env:ProgramFiles 'Git\cmd\git.exe'),
-        (Join-Path ${env:ProgramFiles(x86)} 'Git\cmd\git.exe'),
-        (Join-Path $env:LOCALAPPDATA 'Programs\Git\cmd\git.exe')
-    )
-
-    foreach ($candidate in $candidates) {
-        if ($candidate -and (Test-Path -LiteralPath $candidate)) { return $candidate }
-    }
-
-    return $null
-}
+# Shared helper: locates Git even when the current session PATH is stale.
+. (Join-Path $PSScriptRoot '_git-tools.ps1')
 
 $gitPath = Find-Git
 
 if (-not $gitPath) {
-    Write-Host ''
-    Write-Host 'Git was not found.' -ForegroundColor Yellow
-    Write-Host 'Install it, then run this script again:'
-    Write-Host '    winget install --id Git.Git -e --source winget'
-    Write-Host '    or download: https://git-scm.com/download/win'
-    Write-Host ''
-    Write-Host 'Nothing was changed.' -ForegroundColor Yellow
+    Write-GitMissing
     exit 2
 }
 

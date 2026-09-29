@@ -17,7 +17,13 @@ param(
     [string]$Configuration = 'Release',
     [string]$Runtime = 'win-x64',
     [string]$OutputDirectory,
-    [switch]$SkipTests
+    [switch]$SkipTests,
+
+    # Removes the runtime state (database, settings, logs, exports, backups)
+    # from the output folder after a successful publish, so the package can be
+    # handed to another person. Off by default: on your own installation this
+    # would delete your data.
+    [switch]$Clean
 )
 
 $ErrorActionPreference = 'Stop'
@@ -130,5 +136,62 @@ Write-Host "  version      : $version"
 Write-Host "  files hashed : $(@($entries).Count)"
 Write-Host ("  package size : {0:N1} MB" -f ($totalSize / 1MB))
 Write-Host "  exe sha256   : $($exeEntry.sha256)"
+
+# ---------------------------------------------------------------- clean pack
+if ($Clean) {
+    Write-Host ''
+    Write-Host 'Removing runtime state so the package can be handed on...' -ForegroundColor Cyan
+
+    # Files the user owns, plus everything the application produced while it ran.
+    $targets = @(
+        'data\database.db',
+        'data\database.db-wal',
+        'data\database.db-shm',
+        'data\corrupt',
+        'config\settings.json',
+        'config\instagram_users.txt'
+    )
+
+    $removed = 0
+    $bytes = 0
+
+    foreach ($relative in $targets) {
+        $path = Join-Path $OutputDirectory $relative
+
+        if (-not (Test-Path -LiteralPath $path)) { continue }
+
+        $item = Get-Item -LiteralPath $path -Force
+        $bytes += (Get-ChildItem -LiteralPath $path -Recurse -File -Force -ErrorAction SilentlyContinue |
+            Measure-Object -Property Length -Sum).Sum
+
+        Remove-Item -LiteralPath $path -Recurse -Force
+        $removed++
+        Write-Host "  removed $relative"
+    }
+
+    # Folder contents only: the folders themselves are recreated on first run.
+    foreach ($folder in @('data\backups', 'data\campaigns', 'data\projects', 'logs', 'exports', 'reports', 'cache')) {
+        $path = Join-Path $OutputDirectory $folder
+
+        if (-not (Test-Path -LiteralPath $path)) { continue }
+
+        foreach ($child in Get-ChildItem -LiteralPath $path -Force) {
+            $bytes += (Get-ChildItem -LiteralPath $child.FullName -Recurse -File -Force -ErrorAction SilentlyContinue |
+                Measure-Object -Property Length -Sum).Sum
+            $removed++
+        }
+
+        Get-ChildItem -LiteralPath $path -Force | Remove-Item -Recurse -Force -ErrorAction SilentlyContinue
+        Write-Host "  emptied $folder\"
+    }
+
+    Write-Host ("  {0} item(s) removed, {1:N1} KB freed" -f $removed, ($bytes / 1KB))
+    Write-Host '  kept: data\countries.json, data\target_markets.csv, config\settings.template.json' -ForegroundColor Green
+}
+else {
+    Write-Host ''
+    Write-Host 'Runtime state was kept. Use -Clean to produce a package for someone else.' -ForegroundColor Yellow
+}
+
 Write-Host ''
 Write-Host 'Release ready.' -ForegroundColor Green

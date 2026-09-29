@@ -1,0 +1,16 @@
+Release build objective:
+dotnet publish -c Release -r win-x64 --self-contained true
+
+Recommended output:
+publish\Instageram-Portable
+
+Before release:
+1. Verify startup from C drive.
+2. Copy complete output to another drive and run.
+3. Copy complete output to USB and run.
+4. Test without internet.
+5. Test backup and restore.
+6. Test missing internal folders.
+7. Test database recovery behavior.
+
+Never package user data in a way that replaces existing data during upgrades.

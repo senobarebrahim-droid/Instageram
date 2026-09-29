@@ -1,0 +1,76 @@
+INSTAGERAM source layout (version 0.2.0)
+========================================
+
+This file describes the real structure. The previous version of it listed a
+planned layout (Models/, Views/, ViewModels/) that was never built, which made
+the project harder to understand.
+
+src\Instageram\
+  Program entry
+    App.xaml, App.xaml.cs        startup, headless command routing, theme and
+                                 language are applied before the window opens
+    MainWindow.xaml              the whole user interface (six tabs)
+    MainWindow.xaml.cs           event handlers only
+
+  Core\                          small, dependency free building blocks
+    AppInfo.cs                   product name, version, schema version
+    AppSettings.cs               reads and writes config\settings.json
+    PortablePaths.cs             every path, relative to the executable
+    SchemaMigrator.cs            versioned, additive database migration
+    Localization.cs              {loc:Text key} markup extension + translations
+    ThemeService.cs              swaps the Light/Dark resource dictionary
+    CountryCatalog.cs            countries from data\countries.json
+    ReportWriter.cs              XLSX (raw OpenXML) and printable HTML
+    LineChart.cs                 follower chart drawn with WPF primitives
+    FileTools.cs                 safe cleanup helpers
+    AppLogger.cs                 file log + logs table
+    InstagramValidator.cs        Instagram URL validation
+    Summary.cs                   dashboard totals
+
+  Services\                      work against the database or the disk
+    DatabaseService.cs           all SQLite access and the analytics queries
+    BackupService.cs             backup, restore, consistent snapshot
+    OrganicFollowEngine.cs       the manual work queue
+    ImportedInstagramDiscoveryProvider.cs   reads config\instagram_users.txt
+    InstagramDiscoveryProviderFactory.cs
+    InstagramDiscoveryCandidate.cs
+    IInstagramDiscoveryProvider.cs
+    InstagramOutreachService.cs
+    CentralBrain.cs              active campaign coordination
+    CampaignActivity.cs          in-memory activity log
+
+  Themes\
+    Light.xaml, Dark.xaml        semantic brushes and control defaults
+
+  Instageram.csproj              version, assets copy, settings template copy
+
+tests\Instageram.Tests\          xUnit suite (63 tests)
+  TestEnvironment.cs             one deterministic environment per run
+  AppInfoTests.cs                version and manifest consistency
+  SettingsTemplateTests.cs       first-run defaults, no duplicate settings file
+  SchemaMigratorTests.cs         nine tables, idempotency, upgrade, rollback
+  DatabaseServiceTests.cs        campaigns, statistics, growth, exports
+  BackupServiceTests.cs          backup, restore, failure paths, name collisions
+  LocalizationTests.cs           key parity and XAML key coverage
+  ReportWriterTests.cs           XLSX package structure, escaping, UTF-8
+  InstagramValidatorTests.cs     URL acceptance and rejection
+  AppSettingsTests.cs            unknown key preservation, broken file handling
+
+scripts\
+  build-release.ps1              tests -> publish -> SHA256 -> manifest.json
+  clean-archive.ps1              reclaims the archived build output
+  git-init.ps1                   prepares the repository (needs Git installed)
+
+Configuration
+  config\settings.template.json  defaults for a NEW installation; copied to
+                                 config\settings.json on first run
+  config\settings.json           the running installation's settings (created
+                                 at first run, lives next to the executable)
+  config\instagram_users.txt     the local profile list for manual outreach
+
+  There is only ONE settings.json in the source tree: the template. The old
+  duplicate at the project root was removed in phase 4.
+
+Portable rule
+  Every path is derived from AppContext.BaseDirectory. Nothing is hard coded
+  to a machine specific location, and data\ is never overwritten by an upgrade.

@@ -1,0 +1,47 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <AssemblyName>Instageram</AssemblyName>
+    <RootNamespace>Instageram</RootNamespace>
+    <SelfContained>true</SelfContained>
+    <PublishTrimmed>false</PublishTrimmed>
+
+    <!-- Phase 4: one place that carries the product identity. AppInfo reads
+         this at runtime, and scripts\build-release.ps1 writes it into the
+         packaged manifest.json. -->
+    <Version>0.2.0</Version>
+    <AssemblyVersion>0.2.0.0</AssemblyVersion>
+    <FileVersion>0.2.0.0</FileVersion>
+    <InformationalVersion>0.2.0</InformationalVersion>
+    <Product>INSTAGERAM</Product>
+    <AssemblyTitle>INSTAGERAM</AssemblyTitle>
+    <Description>Portable Instagram campaign manager for analysis, manual outreach tracking and reporting.</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Data.Sqlite" Version="8.0.8" />
+  </ItemGroup>
+
+  <!-- Phase 3: read-only application resources (language files, icons) are
+       copied next to the executable on every build, so localisation always
+       has its data. User data under data\ is deliberately NOT copied here:
+       upgrades must never overwrite it. -->
+  <ItemGroup>
+    <None Include="..\..\assets\**\*"
+          Link="assets\%(RecursiveDir)%(Filename)%(Extension)"
+          CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+
+  <!-- Phase 4: the shipped defaults for a new installation. The application
+       copies this to config\settings.json on first run, so a deployment can
+       pre-configure language, theme and backup behaviour. -->
+  <ItemGroup>
+    <None Include="..\..\config\settings.template.json"
+          Link="config\settings.template.json"
+          CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+</Project>

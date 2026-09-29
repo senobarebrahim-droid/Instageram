@@ -1,0 +1,12 @@
+Design reference for future C# implementation:
+
+AppRoot = AppContext.BaseDirectory
+ConfigDirectory = Path.Combine(AppRoot, "config")
+DataDirectory = Path.Combine(AppRoot, "data")
+DatabasePath = Path.Combine(DataDirectory, "database.db")
+ReportsDirectory = Path.Combine(AppRoot, "reports")
+ExportsDirectory = Path.Combine(AppRoot, "exports")
+LogsDirectory = Path.Combine(AppRoot, "logs")
+BackupsDirectory = Path.Combine(DataDirectory, "backups")
+
+Never hard-code C:\Instageram or any machine-specific absolute path.

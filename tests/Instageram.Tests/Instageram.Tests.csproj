@@ -1,0 +1,39 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <!-- The application uses WPF types (Localization, ThemeService), so the
+         test host needs the same framework references. -->
+    <UseWPF>true</UseWPF>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <IsPackable>false</IsPackable>
+    <RootNamespace>Instageram.Tests</RootNamespace>
+    <AssemblyName>Instageram.Tests</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.11.1" />
+    <PackageReference Include="xunit" Version="2.9.2" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.8.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Instageram\Instageram.csproj" />
+  </ItemGroup>
+
+  <!-- Fixtures the tests read directly: the language files and the UI markup
+       (used to prove every {loc:Text ...} key really exists). -->
+  <ItemGroup>
+    <None Include="..\..\assets\languages\*.json"
+          Link="assets\languages\%(Filename)%(Extension)"
+          CopyToOutputDirectory="PreserveNewest" />
+    <None Include="..\..\src\Instageram\MainWindow.xaml"
+          Link="fixtures\MainWindow.xaml"
+          CopyToOutputDirectory="PreserveNewest" />
+    <None Include="..\..\manifest.json"
+          Link="fixtures\manifest.json"
+          CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+
+</Project>

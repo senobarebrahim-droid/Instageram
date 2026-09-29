@@ -1,0 +1,15 @@
+{
+  "application_name": "INSTAGERAM",
+  "application_version": "0.2.0",
+  "language": "fa",
+  "theme": "Light",
+  "database_path": "data\\database.db",
+  "reports_path": "reports",
+  "exports_path": "exports",
+  "backup_path": "data\\backups",
+  "log_path": "logs\\application.log",
+  "auto_backup": true,
+  "integrity_check_enabled": true,
+  "startup_mode": "Dashboard",
+  "portable_mode": true
+}

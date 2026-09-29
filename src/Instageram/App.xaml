@@ -1,0 +1,9 @@
+<Application x:Class="Instageram.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <!-- Phase 1 fix: StartupUri removed on purpose.
+         App.OnStartup creates and shows MainWindow itself after portable
+         paths and the database are initialized. Keeping StartupUri as well
+         caused TWO identical windows to open on every start. -->
+    <Application.Resources />
+</Application>

@@ -1,0 +1,12 @@
+[
+  {
+    "code": "IR",
+    "name_fa": "ایران",
+    "name_en": "Iran",
+    "dial_code": "+98",
+    "timezone": "Asia/Tehran",
+    "language": "fa-IR",
+    "is_target_market": true,
+    "priority": 1
+  }
+]

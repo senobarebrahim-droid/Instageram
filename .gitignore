@@ -1,0 +1,45 @@
+# Build output
+bin/
+obj/
+publish/
+.buildcache/
+
+# IDE
+.vs/
+.idea/
+*.user
+*.suo
+
+# Runtime data: never version user content or machine specific state
+logs/*.log
+logs/*.txt
+cache/*
+!cache/.gitkeep
+data/database.db
+data/database.db-wal
+data/database.db-shm
+data/backups/*
+!data/backups/.gitkeep
+exports/*
+!exports/.gitkeep
+reports/*
+!reports/.gitkeep
+
+# Configuration that belongs to one machine
+config/settings.json
+config/instagram_users.txt
+
+# Archived snapshots are kept in archive\ (see archive\README.txt)
+backup/*
+!backup/README.txt
+
+# Archived legacy backups and their compact copy
+archive/
+
+# Editor and tooling leftovers
+*.bak
+*.bak_*
+*.backup
+*.backup_*
+*.backup-*
+*.before_*

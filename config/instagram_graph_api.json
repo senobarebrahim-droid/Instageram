@@ -1,0 +1,12 @@
+{
+  "provider": "instagram_graph_api",
+  "enabled": false,
+  "mode": "read_only_analytics",
+  "base_url": "https://graph.facebook.com",
+  "graph_version": "v21.0",
+  "access_token": "",
+  "ig_user_id": "",
+  "timeout_seconds": 30,
+  "retry_count": 3,
+  "notes": "For compliant analytics only (insights/media/profile). Not for follower automation."
+}

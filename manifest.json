@@ -1,0 +1,9 @@
+{
+  "application_name": "INSTAGERAM",
+  "application_version": "0.2.0",
+  "database_schema_version": 2,
+  "portable_mode": true,
+  "generated_at": null,
+  "files": [],
+  "note": "Release descriptor. scripts\\build-release.ps1 publishes the application and writes the packaged manifest.json (next to Instageram.exe) with the SHA256 of every output file. Hashes are deliberately not duplicated here so this descriptor stays small and reviewable. The version above must match <Version> in src\\Instageram\\Instageram.csproj."
+}

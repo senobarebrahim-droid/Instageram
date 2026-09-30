@@ -47,7 +47,7 @@ public static class BackupService
             ZipFile.CreateFromDirectory(temp, zip, CompressionLevel.Optimal, false);
 
             if (!File.Exists(zip) || new FileInfo(zip).Length == 0)
-                throw new InvalidOperationException("فایل Backup ایجاد نشد.");
+                throw new InvalidOperationException("ÙØ§ÛŒÙ„ Backup Ø§ÛŒØ¬Ø§Ø¯ Ù†Ø´Ø¯.");
 
             return zip;
         }
@@ -70,7 +70,7 @@ public static class BackupService
     /// Builds a readable, timestamped file name that is guaranteed not to
     /// collide. Two backups created inside the same second (a user clicking
     /// twice, or the automatic backup racing a manual one) used to throw
-    /// "the file already exists" — found by the test suite.
+    /// "the file already exists" â€” found by the test suite.
     /// </summary>
     private static string UniquePath(string directory, string prefix)
     {
@@ -177,7 +177,7 @@ public static class BackupService
         try
         {
             if (string.IsNullOrWhiteSpace(zipPath) || !File.Exists(zipPath))
-                return Failed("فایل پشتیبان پیدا نشد.");
+                return Failed("ÙØ§ÛŒÙ„ Ù¾Ø´ØªÛŒØ¨Ø§Ù† Ù¾ÛŒØ¯Ø§ Ù†Ø´Ø¯.");
 
             Directory.CreateDirectory(temp);
             ZipFile.ExtractToDirectory(zipPath, temp, true);
@@ -185,13 +185,13 @@ public static class BackupService
             var source = Path.Combine(temp, "data", "database.db");
 
             if (!File.Exists(source))
-                return Failed("این فایل پشتیبان معتبر نیست: data\\database.db در آن وجود ندارد.");
+                return Failed("Ø§ÛŒÙ† ÙØ§ÛŒÙ„ Ù¾Ø´ØªÛŒØ¨Ø§Ù† Ù…Ø¹ØªØ¨Ø± Ù†ÛŒØ³Øª: data\\database.db Ø¯Ø± Ø¢Ù† ÙˆØ¬ÙˆØ¯ Ù†Ø¯Ø§Ø±Ø¯.");
 
             if (!LooksLikeSqlite(source))
-                return Failed("فایل دیتابیس داخل پشتیبان، یک فایل SQLite معتبر نیست.");
+                return Failed("ÙØ§ÛŒÙ„ Ø¯ÛŒØªØ§Ø¨ÛŒØ³ Ø¯Ø§Ø®Ù„ Ù¾Ø´ØªÛŒØ¨Ø§Ù†ØŒ ÛŒÚ© ÙØ§ÛŒÙ„ SQLite Ù…Ø¹ØªØ¨Ø± Ù†ÛŒØ³Øª.");
 
             if (!IsHealthy(source, out var problem))
-                return Failed("دیتابیس داخل پشتیبان سالم نیست: " + problem);
+                return Failed("Ø¯ÛŒØªØ§Ø¨ÛŒØ³ Ø¯Ø§Ø®Ù„ Ù¾Ø´ØªÛŒØ¨Ø§Ù† Ø³Ø§Ù„Ù… Ù†ÛŒØ³Øª: " + problem);
 
             if (File.Exists(PortablePaths.Database))
                 safety = CreateSafetyCopy();
@@ -230,8 +230,8 @@ public static class BackupService
             {
                 Success = true,
                 SafetyBackup = safety,
-                Message = "بازیابی انجام شد." + Environment.NewLine +
-                          "نسخه امنیتی وضعیت قبلی: " + (safety ?? "(ندارد)")
+                Message = "Ø¨Ø§Ø²ÛŒØ§Ø¨ÛŒ Ø§Ù†Ø¬Ø§Ù… Ø´Ø¯." + Environment.NewLine +
+                          "Ù†Ø³Ø®Ù‡ Ø§Ù…Ù†ÛŒØªÛŒ ÙˆØ¶Ø¹ÛŒØª Ù‚Ø¨Ù„ÛŒ: " + (safety ?? "(Ù†Ø¯Ø§Ø±Ø¯)")
             };
         }
         catch (Exception ex)
@@ -241,7 +241,7 @@ public static class BackupService
             var rollback = TryRollback(safety);
 
             return Failed(
-                "بازیابی ناموفق بود: " + ex.Message + Environment.NewLine + rollback,
+                "Ø¨Ø§Ø²ÛŒØ§Ø¨ÛŒ Ù†Ø§Ù…ÙˆÙÙ‚ Ø¨ÙˆØ¯: " + ex.Message + Environment.NewLine + rollback,
                 safety);
         }
         finally
@@ -313,7 +313,7 @@ public static class BackupService
     private static string TryRollback(string? safety)
     {
         if (string.IsNullOrWhiteSpace(safety) || !File.Exists(safety))
-            return "هیچ نسخه امنیتی برای بازگشت وجود نداشت.";
+            return "Ù‡ÛŒÚ† Ù†Ø³Ø®Ù‡ Ø§Ù…Ù†ÛŒØªÛŒ Ø¨Ø±Ø§ÛŒ Ø¨Ø§Ø²Ú¯Ø´Øª ÙˆØ¬ÙˆØ¯ Ù†Ø¯Ø§Ø´Øª.";
 
         var temp = Path.Combine(PortablePaths.Cache, "rollback_" + Guid.NewGuid().ToString("N"));
 
@@ -325,18 +325,18 @@ public static class BackupService
             var source = Path.Combine(temp, "data", "database.db");
 
             if (!File.Exists(source))
-                return "نسخه امنیتی محتوای دیتابیس نداشت.";
+                return "Ù†Ø³Ø®Ù‡ Ø§Ù…Ù†ÛŒØªÛŒ Ù…Ø­ØªÙˆØ§ÛŒ Ø¯ÛŒØªØ§Ø¨ÛŒØ³ Ù†Ø¯Ø§Ø´Øª.";
 
             File.Copy(source, PortablePaths.Database, true);
             RemoveSideFiles(PortablePaths.Database);
             DatabaseService.Initialize();
 
-            return "وضعیت قبلی به‌صورت خودکار بازگردانده شد.";
+            return "ÙˆØ¶Ø¹ÛŒØª Ù‚Ø¨Ù„ÛŒ Ø¨Ù‡â€ŒØµÙˆØ±Øª Ø®ÙˆØ¯Ú©Ø§Ø± Ø¨Ø§Ø²Ú¯Ø±Ø¯Ø§Ù†Ø¯Ù‡ Ø´Ø¯.";
         }
         catch (Exception ex)
         {
             AppLogger.Error("Rollback", ex.ToString());
-            return "بازگشت خودکار هم ناموفق بود: " + ex.Message;
+            return "Ø¨Ø§Ø²Ú¯Ø´Øª Ø®ÙˆØ¯Ú©Ø§Ø± Ù‡Ù… Ù†Ø§Ù…ÙˆÙÙ‚ Ø¨ÙˆØ¯: " + ex.Message;
         }
         finally
         {

@@ -1,4 +1,4 @@
-﻿namespace Instageram.Android;
+namespace Instageram.Android;
 
 public partial class App : Application
 {

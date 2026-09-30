@@ -72,14 +72,14 @@ public partial class MainWindow : Window
     {
         if (InstagramValidator.TryGetUsername(UrlBox.Text, out var username, out var message))
         {
-            ResultText.Text = "✓ URL معتبر است." + Environment.NewLine +
+            ResultText.Text = "âœ“ URL Ù…Ø¹ØªØ¨Ø± Ø§Ø³Øª." + Environment.NewLine +
                               "Username: @" + username + Environment.NewLine + Environment.NewLine +
-                              "برای داده آنلاین در نسخه‌های آینده فقط باید از API رسمی و مجاز استفاده شود.";
+                              "Ø¨Ø±Ø§ÛŒ Ø¯Ø§Ø¯Ù‡ Ø¢Ù†Ù„Ø§ÛŒÙ† Ø¯Ø± Ù†Ø³Ø®Ù‡â€ŒÙ‡Ø§ÛŒ Ø¢ÛŒÙ†Ø¯Ù‡ ÙÙ‚Ø· Ø¨Ø§ÛŒØ¯ Ø§Ø² API Ø±Ø³Ù…ÛŒ Ùˆ Ù…Ø¬Ø§Ø² Ø§Ø³ØªÙØ§Ø¯Ù‡ Ø´ÙˆØ¯.";
             StatusText.Text = "Instagram URL validated.";
         }
         else
         {
-            ResultText.Text = "✗ " + message;
+            ResultText.Text = "âœ— " + message;
             StatusText.Text = "Invalid Instagram URL.";
         }
     }
@@ -102,19 +102,19 @@ public partial class MainWindow : Window
 
             if (string.IsNullOrWhiteSpace(name))
             {
-                MessageBox.Show("نام کشور را وارد کنید.", "Country Name Required", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show("Ù†Ø§Ù… Ú©Ø´ÙˆØ± Ø±Ø§ ÙˆØ§Ø±Ø¯ Ú©Ù†ÛŒØ¯.", "Country Name Required", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
 
             if (!long.TryParse(TargetBox.Text.Replace(",", "").Trim(), out var target) || target <= 0)
             {
-                MessageBox.Show("هدف Number باید عددی بزرگ‌تر از صفر باشد.", "Invalid هدف", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show("Ù‡Ø¯Ù Number Ø¨Ø§ÛŒØ¯ Ø¹Ø¯Ø¯ÛŒ Ø¨Ø²Ø±Ú¯â€ŒØªØ± Ø§Ø² ØµÙØ± Ø¨Ø§Ø´Ø¯.", "Invalid Ù‡Ø¯Ù", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
 
             if (!long.TryParse(CurrentBox.Text.Replace(",", "").Trim(), out var current) || current < 0)
             {
-                MessageBox.Show("Current Result باید صفر یا عدد مثبت باشد.", "Invalid Current Result", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show("Current Result Ø¨Ø§ÛŒØ¯ ØµÙØ± ÛŒØ§ Ø¹Ø¯Ø¯ Ù…Ø«Ø¨Øª Ø¨Ø§Ø´Ø¯.", "Invalid Current Result", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
 
@@ -122,7 +122,7 @@ public partial class MainWindow : Window
 
             if (selected.Count == 0)
             {
-                MessageBox.Show("حداقل یک کشور یا بازار را انتخاب کنید.", "Country Required", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show("Ø­Ø¯Ø§Ù‚Ù„ ÛŒÚ© Ú©Ø´ÙˆØ± ÛŒØ§ Ø¨Ø§Ø²Ø§Ø± Ø±Ø§ Ø§Ù†ØªØ®Ø§Ø¨ Ú©Ù†ÛŒØ¯.", "Country Required", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
 
@@ -149,7 +149,7 @@ CentralBrain.Instance.SetActiveCampaign(_activeCampaignId);
                 StartManualWorkflow_Click(this, new RoutedEventArgs());
             }
 
-            MessageBox.Show("کمپین با موفقیت ایجاد شد.", "INSTAGERAM", MessageBoxButton.OK, MessageBoxImage.Information);
+            MessageBox.Show("Ú©Ù…Ù¾ÛŒÙ† Ø¨Ø§ Ù…ÙˆÙÙ‚ÛŒØª Ø§ÛŒØ¬Ø§Ø¯ Ø´Ø¯.", "INSTAGERAM", MessageBoxButton.OK, MessageBoxImage.Information);
 
             UrlBox.Clear();
             NameBox.Clear();
@@ -173,8 +173,8 @@ CentralBrain.Instance.SetActiveCampaign(_activeCampaignId);
     {
         try
         {
-            // اگر CreateCampaign همین الان کمپین ساخته، همان ID را استفاده کن.
-            // فقط اگر ID نداریم، آخرین کمپین دیتابیس را بخوان.
+            // Ø§Ú¯Ø± CreateCampaign Ù‡Ù…ÛŒÙ† Ø§Ù„Ø§Ù† Ú©Ù…Ù¾ÛŒÙ† Ø³Ø§Ø®ØªÙ‡ØŒ Ù‡Ù…Ø§Ù† ID Ø±Ø§ Ø§Ø³ØªÙØ§Ø¯Ù‡ Ú©Ù†.
+            // ÙÙ‚Ø· Ø§Ú¯Ø± ID Ù†Ø¯Ø§Ø±ÛŒÙ…ØŒ Ø¢Ø®Ø±ÛŒÙ† Ú©Ù…Ù¾ÛŒÙ† Ø¯ÛŒØªØ§Ø¨ÛŒØ³ Ø±Ø§ Ø¨Ø®ÙˆØ§Ù†.
             long campaignId = DatabaseService.GetLatestCampaignId();
 
             _activeCampaignId = campaignId;
@@ -193,7 +193,7 @@ CentralBrain.Instance.SetActiveCampaign(_activeCampaignId);
             if(campaignId <= 0)
             {
                 MessageBox.Show(
-                    "هیچ کمپینی در دیتابیس وجود ندارد. ابتدا از بخش «ایجاد کمپین» یک کمپین ذخیره کنید.",
+                    "Ù‡ÛŒÚ† Ú©Ù…Ù¾ÛŒÙ†ÛŒ Ø¯Ø± Ø¯ÛŒØªØ§Ø¨ÛŒØ³ ÙˆØ¬ÙˆØ¯ Ù†Ø¯Ø§Ø±Ø¯. Ø§Ø¨ØªØ¯Ø§ Ø§Ø² Ø¨Ø®Ø´ Â«Ø§ÛŒØ¬Ø§Ø¯ Ú©Ù…Ù¾ÛŒÙ†Â» ÛŒÚ© Ú©Ù…Ù¾ÛŒÙ† Ø°Ø®ÛŒØ±Ù‡ Ú©Ù†ÛŒØ¯.",
                     "Campaign",
                     MessageBoxButton.OK,
                     MessageBoxImage.Warning);
@@ -208,7 +208,7 @@ CentralBrain.Instance.SetActiveCampaign(_activeCampaignId);
             if(string.IsNullOrWhiteSpace(url))
             {
                 MessageBox.Show(
-                    "کمپین پیدا شد ولی URL اینستاگرام آن خالی است.",
+                    "Ú©Ù…Ù¾ÛŒÙ† Ù¾ÛŒØ¯Ø§ Ø´Ø¯ ÙˆÙ„ÛŒ URL Ø§ÛŒÙ†Ø³ØªØ§Ú¯Ø±Ø§Ù… Ø¢Ù† Ø®Ø§Ù„ÛŒ Ø§Ø³Øª.",
                     "Campaign URL",
                     MessageBoxButton.OK,
                     MessageBoxImage.Warning);
@@ -234,13 +234,13 @@ CentralBrain.Instance.SetActiveCampaign(_activeCampaignId);
 
             ManualCurrentText.Text = "@" + username;
             ManualQueueText.Text = "Queue: 1 | Completed: 0";
-            ManualStatusText.Text = "کمپین آماده است.";
+            ManualStatusText.Text = "Ú©Ù…Ù¾ÛŒÙ† Ø¢Ù…Ø§Ø¯Ù‡ Ø§Ø³Øª.";
 
             OpenCurrentProfile();
         }
         catch(Exception ex)
         {
-            ManualStatusText.Text = "خطا در شروع ارسال دستی";
+            ManualStatusText.Text = "Ø®Ø·Ø§ Ø¯Ø± Ø´Ø±ÙˆØ¹ Ø§Ø±Ø³Ø§Ù„ Ø¯Ø³ØªÛŒ";
 
             MessageBox.Show(
                 ex.ToString(),
@@ -256,10 +256,10 @@ private void ShowNextManualCandidate()
 
         if(_manualCurrent == null)
         {
-            ManualCurrentText.Text = "صف تکمیل شد.";
+            ManualCurrentText.Text = "ØµÙ ØªÚ©Ù…ÛŒÙ„ Ø´Ø¯.";
             ManualQueueText.Text =
                 $"Queue: 0 | Completed: {_manualCompleted}";
-            ManualStatusText.Text = "فرآیند تکمیل شد.";
+            ManualStatusText.Text = "ÙØ±Ø¢ÛŒÙ†Ø¯ ØªÚ©Ù…ÛŒÙ„ Ø´Ø¯.";
             return;
         }
 
@@ -268,7 +268,7 @@ private void ShowNextManualCandidate()
         ManualQueueText.Text =
             $"Queue: {_manualEngine.QueueCount} | Completed: {_manualCompleted}";
 
-        ManualStatusText.Text = "پیج فعلی آماده است.";
+        ManualStatusText.Text = "Ù¾ÛŒØ¬ ÙØ¹Ù„ÛŒ Ø¢Ù…Ø§Ø¯Ù‡ Ø§Ø³Øª.";
 
         OpenCurrentProfile();
     }
@@ -285,7 +285,7 @@ private void OpenCurrentProfile()
 
         if (string.IsNullOrWhiteSpace(url))
         {
-            MessageBox.Show("ابتدا URL اینستاگرام را وارد کنید.", "باز کردن پیج");
+            MessageBox.Show("Ø§Ø¨ØªØ¯Ø§ URL Ø§ÛŒÙ†Ø³ØªØ§Ú¯Ø±Ø§Ù… Ø±Ø§ ÙˆØ§Ø±Ø¯ Ú©Ù†ÛŒØ¯.", "Ø¨Ø§Ø² Ú©Ø±Ø¯Ù† Ù¾ÛŒØ¬");
             return;
         }
 
@@ -299,7 +299,7 @@ private void OpenCurrentProfile()
             !uri.Host.Equals("instagram.com", StringComparison.OrdinalIgnoreCase) &&
             !uri.Host.Equals("www.instagram.com", StringComparison.OrdinalIgnoreCase))
         {
-            MessageBox.Show("URL اینستاگرام معتبر نیست.", "باز کردن پیج");
+            MessageBox.Show("URL Ø§ÛŒÙ†Ø³ØªØ§Ú¯Ø±Ø§Ù… Ù…Ø¹ØªØ¨Ø± Ù†ÛŒØ³Øª.", "Ø¨Ø§Ø² Ú©Ø±Ø¯Ù† Ù¾ÛŒØ¬");
             return;
         }
 
@@ -311,7 +311,7 @@ private void OpenCurrentProfile()
     }
     catch (Exception ex)
     {
-        MessageBox.Show(ErrorMessages.ForUser(ex), "خطا در باز کردن پیج");
+        MessageBox.Show(ErrorMessages.ForUser(ex), "Ø®Ø·Ø§ Ø¯Ø± Ø¨Ø§Ø² Ú©Ø±Ø¯Ù† Ù¾ÛŒØ¬");
     }
 }
 private void CompleteCurrent_Click(object sender, RoutedEventArgs e)
@@ -449,7 +449,7 @@ private void Export_Click(object sender, RoutedEventArgs e) => RunExport(Databas
         try
         {
             var path = BackupService.Create();
-            ActionText.Text = "✓ Backup ZIP ساخته شد:" + Environment.NewLine + path;
+            ActionText.Text = "âœ“ Backup ZIP Ø³Ø§Ø®ØªÙ‡ Ø´Ø¯:" + Environment.NewLine + path;
             StatusText.Text = "Backup created.";
         }
         catch (Exception ex)
@@ -466,7 +466,7 @@ private void Export_Click(object sender, RoutedEventArgs e) => RunExport(Databas
         {
             var dialog = new Microsoft.Win32.OpenFileDialog
             {
-                Title = "انتخاب فایل پشتیبان",
+                Title = "Ø§Ù†ØªØ®Ø§Ø¨ ÙØ§ÛŒÙ„ Ù¾Ø´ØªÛŒØ¨Ø§Ù†",
                 Filter = "INSTAGERAM Backup (*.zip)|*.zip|All files (*.*)|*.*",
                 InitialDirectory = Directory.Exists(PortablePaths.Backups)
                     ? PortablePaths.Backups
@@ -477,10 +477,10 @@ private void Export_Click(object sender, RoutedEventArgs e) => RunExport(Databas
                 return;
 
             var confirm = MessageBox.Show(
-                "داده‌های فعلی با محتوای این پشتیبان جایگزین می‌شود." + Environment.NewLine +
-                "پیش از جایگزینی، یک نسخه امنیتی خودکار گرفته می‌شود." + Environment.NewLine + Environment.NewLine +
-                "ادامه می‌دهید؟",
-                "بازیابی پشتیبان",
+                "Ø¯Ø§Ø¯Ù‡â€ŒÙ‡Ø§ÛŒ ÙØ¹Ù„ÛŒ Ø¨Ø§ Ù…Ø­ØªÙˆØ§ÛŒ Ø§ÛŒÙ† Ù¾Ø´ØªÛŒØ¨Ø§Ù† Ø¬Ø§ÛŒÚ¯Ø²ÛŒÙ† Ù…ÛŒâ€ŒØ´ÙˆØ¯." + Environment.NewLine +
+                "Ù¾ÛŒØ´ Ø§Ø² Ø¬Ø§ÛŒÚ¯Ø²ÛŒÙ†ÛŒØŒ ÛŒÚ© Ù†Ø³Ø®Ù‡ Ø§Ù…Ù†ÛŒØªÛŒ Ø®ÙˆØ¯Ú©Ø§Ø± Ú¯Ø±ÙØªÙ‡ Ù…ÛŒâ€ŒØ´ÙˆØ¯." + Environment.NewLine + Environment.NewLine +
+                "Ø§Ø¯Ø§Ù…Ù‡ Ù…ÛŒâ€ŒØ¯Ù‡ÛŒØ¯ØŸ",
+                "Ø¨Ø§Ø²ÛŒØ§Ø¨ÛŒ Ù¾Ø´ØªÛŒØ¨Ø§Ù†",
                 MessageBoxButton.YesNo,
                 MessageBoxImage.Warning);
 
@@ -489,7 +489,7 @@ private void Export_Click(object sender, RoutedEventArgs e) => RunExport(Databas
 
             var result = BackupService.Restore(dialog.FileName);
 
-            ActionText.Text = (result.Success ? "✓ " : "✗ ") + result.Message;
+            ActionText.Text = (result.Success ? "âœ“ " : "âœ— ") + result.Message;
             StatusText.Text = result.Success ? "Backup restored." : "Restore failed.";
 
             if (result.Success)
@@ -529,15 +529,15 @@ private void Export_Click(object sender, RoutedEventArgs e) => RunExport(Databas
             AutoBackupBox.IsChecked = AppSettings.AutomaticBackup;
             IntegrityCheckBox.IsChecked = AppSettings.IntegrityCheckEnabled;
 
-            SettingsInfoText.Text = "تنظیمات بارگذاری شد." + Environment.NewLine +
-                                    "منبع: " + AppSettings.Source;
+            SettingsInfoText.Text = "ØªÙ†Ø¸ÛŒÙ…Ø§Øª Ø¨Ø§Ø±Ú¯Ø°Ø§Ø±ÛŒ Ø´Ø¯." + Environment.NewLine +
+                                    "Ù…Ù†Ø¨Ø¹: " + AppSettings.Source;
 
             SettingsPathsText.Text =
-                "ریشه قابل حمل: " + PortablePaths.Root + Environment.NewLine +
-                "دیتابیس: " + PortablePaths.Database + Environment.NewLine +
-                "لاگ‌ها: " + PortablePaths.Logs + Environment.NewLine +
-                "گزارش‌ها: " + PortablePaths.Exports + Environment.NewLine +
-                "پشتیبان‌ها: " + PortablePaths.Backups + Environment.NewLine +
+                "Ø±ÛŒØ´Ù‡ Ù‚Ø§Ø¨Ù„ Ø­Ù…Ù„: " + PortablePaths.Root + Environment.NewLine +
+                "Ø¯ÛŒØªØ§Ø¨ÛŒØ³: " + PortablePaths.Database + Environment.NewLine +
+                "Ù„Ø§Ú¯â€ŒÙ‡Ø§: " + PortablePaths.Logs + Environment.NewLine +
+                "Ú¯Ø²Ø§Ø±Ø´â€ŒÙ‡Ø§: " + PortablePaths.Exports + Environment.NewLine +
+                "Ù¾Ø´ØªÛŒØ¨Ø§Ù†â€ŒÙ‡Ø§: " + PortablePaths.Backups + Environment.NewLine +
                 Localization.T("settings_template") + ": " +
                 (File.Exists(PortablePaths.SettingsTemplate)
                     ? PortablePaths.SettingsTemplate
@@ -546,7 +546,7 @@ private void Export_Click(object sender, RoutedEventArgs e) => RunExport(Databas
             SettingsVersionText.Text =
                 Localization.T("settings_version") + ": " + AppInfo.ProductName + " " + AppInfo.Version +
                 Environment.NewLine +
-                AppInfo.Framework + " · schema v" + DatabaseService.SchemaVersion;
+                AppInfo.Framework + " Â· schema v" + DatabaseService.SchemaVersion;
         }
         catch (Exception ex)
         {
@@ -579,11 +579,11 @@ private void Export_Click(object sender, RoutedEventArgs e) => RunExport(Databas
             Localization.Load(AppSettings.Language);
 
             SettingsInfoText.Text = saved
-                ? "✓ تنظیمات ذخیره شد و در جدول app_settings ثبت گردید." + Environment.NewLine +
-                  "تم اعمال‌شده: " + ThemeService.Current +
-                  (themeApplied ? "" : " (اعمال تم ناموفق بود؛ جزئیات در logs\\application.log)") + Environment.NewLine +
-                  "چندزبان‌سازی در مرحله بعدی همین فاز فعال می‌شود."
-                : "✗ ذخیره تنظیمات ناموفق بود. جزئیات در logs\\application.log";
+                ? "âœ“ ØªÙ†Ø¸ÛŒÙ…Ø§Øª Ø°Ø®ÛŒØ±Ù‡ Ø´Ø¯ Ùˆ Ø¯Ø± Ø¬Ø¯ÙˆÙ„ app_settings Ø«Ø¨Øª Ú¯Ø±Ø¯ÛŒØ¯." + Environment.NewLine +
+                  "ØªÙ… Ø§Ø¹Ù…Ø§Ù„â€ŒØ´Ø¯Ù‡: " + ThemeService.Current +
+                  (themeApplied ? "" : " (Ø§Ø¹Ù…Ø§Ù„ ØªÙ… Ù†Ø§Ù…ÙˆÙÙ‚ Ø¨ÙˆØ¯Ø› Ø¬Ø²Ø¦ÛŒØ§Øª Ø¯Ø± logs\\application.log)") + Environment.NewLine +
+                  "Ú†Ù†Ø¯Ø²Ø¨Ø§Ù†â€ŒØ³Ø§Ø²ÛŒ Ø¯Ø± Ù…Ø±Ø­Ù„Ù‡ Ø¨Ø¹Ø¯ÛŒ Ù‡Ù…ÛŒÙ† ÙØ§Ø² ÙØ¹Ø§Ù„ Ù…ÛŒâ€ŒØ´ÙˆØ¯."
+                : "âœ— Ø°Ø®ÛŒØ±Ù‡ ØªÙ†Ø¸ÛŒÙ…Ø§Øª Ù†Ø§Ù…ÙˆÙÙ‚ Ø¨ÙˆØ¯. Ø¬Ø²Ø¦ÛŒØ§Øª Ø¯Ø± logs\\application.log";
 
             StatusText.Text = saved ? "Settings saved." : "Settings save failed.";
 
@@ -614,8 +614,8 @@ private void Export_Click(object sender, RoutedEventArgs e) => RunExport(Databas
 
         ThemeService.Apply(theme);
 
-        SettingsInfoText.Text = "پیش‌نمایش تم: " + ThemeService.Current + Environment.NewLine +
-                                "برای ذخیره دائمی، دکمه «ذخیره تنظیمات» را بزنید.";
+        SettingsInfoText.Text = "Ù¾ÛŒØ´â€ŒÙ†Ù…Ø§ÛŒØ´ ØªÙ…: " + ThemeService.Current + Environment.NewLine +
+                                "Ø¨Ø±Ø§ÛŒ Ø°Ø®ÛŒØ±Ù‡ Ø¯Ø§Ø¦Ù…ÛŒØŒ Ø¯Ú©Ù…Ù‡ Â«Ø°Ø®ÛŒØ±Ù‡ ØªÙ†Ø¸ÛŒÙ…Ø§ØªÂ» Ø±Ø§ Ø¨Ø²Ù†ÛŒØ¯.";
     }
 
     /// <summary>Phase 3: live language preview without saving yet.</summary>
@@ -629,9 +629,9 @@ private void Export_Click(object sender, RoutedEventArgs e) => RunExport(Databas
 
         Localization.Load(language);
 
-        SettingsInfoText.Text = "پیش‌نمایش زبان: " + Localization.Language + Environment.NewLine +
-                                "منبع: " + Localization.Source + Environment.NewLine +
-                                "برای ذخیره دائمی، دکمه «ذخیره تنظیمات» را بزنید.";
+        SettingsInfoText.Text = "Ù¾ÛŒØ´â€ŒÙ†Ù…Ø§ÛŒØ´ Ø²Ø¨Ø§Ù†: " + Localization.Language + Environment.NewLine +
+                                "Ù…Ù†Ø¨Ø¹: " + Localization.Source + Environment.NewLine +
+                                "Ø¨Ø±Ø§ÛŒ Ø°Ø®ÛŒØ±Ù‡ Ø¯Ø§Ø¦Ù…ÛŒØŒ Ø¯Ú©Ù…Ù‡ Â«Ø°Ø®ÛŒØ±Ù‡ ØªÙ†Ø¸ÛŒÙ…Ø§ØªÂ» Ø±Ø§ Ø¨Ø²Ù†ÛŒØ¯.";
     }
 
     // ================== Phase 3: statistics page ==================
@@ -755,15 +755,15 @@ private void Export_Click(object sender, RoutedEventArgs e) => RunExport(Databas
             var summary = DatabaseService.GetGrowthSummary(campaignId);
 
             GrowthLatestText.Text = summary.Records == 0
-                ? "—"
+                ? "â€”"
                 : summary.LatestFollowers.ToString("N0");
 
             GrowthTotalText.Text = summary.Records == 0
-                ? "—"
+                ? "â€”"
                 : (summary.TotalGrowth > 0 ? "+" : "") + summary.TotalGrowth.ToString("N0");
 
             GrowthEngagementText.Text = summary.Records == 0
-                ? "—"
+                ? "â€”"
                 : summary.AverageEngagement.ToString("N2") + "%";
 
             GrowthRecordsText.Text = summary.Records.ToString("N0");
@@ -859,7 +859,7 @@ private void SaveCampaign_Click(object sender, RoutedEventArgs e)
             false
         );
 
-        StatusText.Text = "کمپین ذخیره شد (شناسه: " + id + ")";
+        StatusText.Text = "Ú©Ù…Ù¾ÛŒÙ† Ø°Ø®ÛŒØ±Ù‡ Ø´Ø¯ (Ø´Ù†Ø§Ø³Ù‡: " + id + ")";
 
         RefreshDashboard();
     }
@@ -876,7 +876,7 @@ private void RefreshDashboard()
 
         ProjectsText.Text = summary.Projects.ToString("N0");
         CampaignsText.Text = summary.Campaigns.ToString("N0");
-        TargetText.Text = summary.هدف.ToString("N0");
+        TargetText.Text = summary.Ù‡Ø¯Ù.ToString("N0");
         ProgressText.Text = summary.Progress.ToString("N2") + "% (" + summary.Current.ToString("N0") + "/" + summary.Target.ToString("N0") + ")";
 
         var dashboardData = DatabaseService.GetCampaigns();

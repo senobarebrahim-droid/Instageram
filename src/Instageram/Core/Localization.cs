@@ -13,7 +13,7 @@ namespace Instageram;
 /// Strings live in assets\languages\{lang}.json. XAML refers to them with the
 /// markup extension <c>{loc:Text key}</c>, which binds to the indexer below.
 /// Because the binding is live, changing the language re-renders the whole
-/// window immediately — no restart needed.
+/// window immediately â€” no restart needed.
 ///
 /// Resolution order: requested language file -> English file -> the raw key.
 /// A missing or broken file can therefore never crash the application.

@@ -1,4 +1,4 @@
-﻿// Phase 4: extracted from MainWindow.xaml.cs. Behaviour is unchanged;
+// Phase 4: extracted from MainWindow.xaml.cs. Behaviour is unchanged;
 // this file only groups one responsibility so the code stays maintainable.
 using Microsoft.Data.Sqlite;
 using System.Data;

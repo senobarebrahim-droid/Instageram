@@ -343,7 +343,7 @@ public static Summary GetSummary()
         {
             Projects = reader.GetInt64(0),
             Campaigns = reader.GetInt64(1),
-            هدف = reader.GetInt64(2),
+            Ù‡Ø¯Ù = reader.GetInt64(2),
             Target = reader.GetInt64(2),
             Current = reader.GetInt64(3)
         };
@@ -529,7 +529,7 @@ public static Summary GetSummary()
             {
                 Id = id,
                 ProjectId = projectId,
-                Label = $"#{id} · {name} (@{username})"
+                Label = $"#{id} Â· {name} (@{username})"
             });
         }
 

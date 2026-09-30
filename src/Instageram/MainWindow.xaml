@@ -2,7 +2,7 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:loc="clr-namespace:Instageram"
-        Title="INSTAGERAM - Portable کمپین Manager"
+        Title="INSTAGERAM - Portable Ú©Ù…Ù¾ÛŒÙ† Manager"
         Width="1120"
         Height="720"
         MinWidth="920"
@@ -17,16 +17,16 @@
         </Style>
 
         <DataTemplate x:Key="CountryItemTemplate">
-            <TextBlock Text="{Binding نام, FallbackValue={Binding}}"
+            <TextBlock Text="{Binding Ù†Ø§Ù…, FallbackValue={Binding}}"
                        Style="{StaticResource CountryComboBoxItemTextStyle}"
-                       ToolTip="{Binding نام, FallbackValue={Binding}}"/>
+                       ToolTip="{Binding Ù†Ø§Ù…, FallbackValue={Binding}}"/>
         </DataTemplate>
 
         <DataTemplate x:Key="CountrySelectedTemplate">
-            <TextBlock Text="{Binding نام, FallbackValue={Binding}}"
+            <TextBlock Text="{Binding Ù†Ø§Ù…, FallbackValue={Binding}}"
                        TextWrapping="NoWrap"
                        TextTrimming="CharacterEllipsis"
-                       ToolTip="{Binding نام, FallbackValue={Binding}}"/>
+                       ToolTip="{Binding Ù†Ø§Ù…, FallbackValue={Binding}}"/>
         </DataTemplate>
     </Window.Resources>
 
@@ -67,25 +67,25 @@
                         <Border Background="{DynamicResource AppSurface}" BorderBrush="{DynamicResource AppBorder}" BorderThickness="1" CornerRadius="8" Margin="4" Padding="14">
                             <StackPanel>
                                 <TextBlock Text="{loc:Text card_projects}" Foreground="{DynamicResource TextMuted}"/>
-                                <TextBlock x:Name="ProjectsText" Text="پروژه‌ها" FontSize="26" FontWeight="Bold" Foreground="{DynamicResource TextPrimary}"/>
+                                <TextBlock x:Name="ProjectsText" Text="Ù¾Ø±ÙˆÚ˜Ù‡â€ŒÙ‡Ø§" FontSize="26" FontWeight="Bold" Foreground="{DynamicResource TextPrimary}"/>
                             </StackPanel>
                         </Border>
                         <Border Background="{DynamicResource AppSurface}" BorderBrush="{DynamicResource AppBorder}" BorderThickness="1" CornerRadius="8" Margin="4" Padding="14">
                             <StackPanel>
                                 <TextBlock Text="{loc:Text card_campaigns}" Foreground="{DynamicResource TextMuted}"/>
-                                <TextBlock x:Name="CampaignsText" Text="کمپین‌ها" FontSize="26" FontWeight="Bold" Foreground="{DynamicResource TextPrimary}"/>
+                                <TextBlock x:Name="CampaignsText" Text="Ú©Ù…Ù¾ÛŒÙ†â€ŒÙ‡Ø§" FontSize="26" FontWeight="Bold" Foreground="{DynamicResource TextPrimary}"/>
                             </StackPanel>
                         </Border>
                         <Border Background="{DynamicResource AppSurface}" BorderBrush="{DynamicResource AppBorder}" BorderThickness="1" CornerRadius="8" Margin="4" Padding="14">
                             <StackPanel>
                                 <TextBlock Text="{loc:Text card_target}" Foreground="{DynamicResource TextMuted}"/>
-                                <TextBlock x:Name="TargetText" Text="تعداد هدف" FontSize="26" FontWeight="Bold" Foreground="{DynamicResource TextPrimary}"/>
+                                <TextBlock x:Name="TargetText" Text="ØªØ¹Ø¯Ø§Ø¯ Ù‡Ø¯Ù" FontSize="26" FontWeight="Bold" Foreground="{DynamicResource TextPrimary}"/>
                             </StackPanel>
                         </Border>
                         <Border Background="{DynamicResource AppSurface}" BorderBrush="{DynamicResource AppBorder}" BorderThickness="1" CornerRadius="8" Margin="4" Padding="14">
                             <StackPanel>
                                 <TextBlock Text="{loc:Text card_progress}" Foreground="{DynamicResource TextMuted}"/>
-                                <TextBlock x:Name="ProgressText" Text="پیشرفت" FontSize="26" FontWeight="Bold" Foreground="{DynamicResource TextSuccess}"/>
+                                <TextBlock x:Name="ProgressText" Text="Ù¾ÛŒØ´Ø±ÙØª" FontSize="26" FontWeight="Bold" Foreground="{DynamicResource TextSuccess}"/>
                             </StackPanel>
                         </Border>
                     </UniformGrid>
@@ -298,7 +298,7 @@
                                        Margin="0,0,0,15"
                                        TextWrapping="Wrap"
                                        Foreground="{DynamicResource TextBody}"
-                                       Text="نتیجه"/>
+                                       Text="Ù†ØªÛŒØ¬Ù‡"/>
 
                             <Separator Margin="0,10,0,20"/>
 
@@ -465,7 +465,7 @@
                                 <StackPanel>
                                     <TextBlock Text="{loc:Text growth_latest}"
                                                Foreground="{DynamicResource TextMuted}"/>
-                                    <TextBlock x:Name="GrowthLatestText" Text="—"
+                                    <TextBlock x:Name="GrowthLatestText" Text="â€”"
                                                FontSize="24" FontWeight="Bold"
                                                Foreground="{DynamicResource TextPrimary}"/>
                                 </StackPanel>
@@ -475,7 +475,7 @@
                                 <StackPanel>
                                     <TextBlock Text="{loc:Text growth_total}"
                                                Foreground="{DynamicResource TextMuted}"/>
-                                    <TextBlock x:Name="GrowthTotalText" Text="—"
+                                    <TextBlock x:Name="GrowthTotalText" Text="â€”"
                                                FontSize="24" FontWeight="Bold"
                                                Foreground="{DynamicResource TextSuccess}"/>
                                 </StackPanel>
@@ -485,7 +485,7 @@
                                 <StackPanel>
                                     <TextBlock Text="{loc:Text growth_engagement}"
                                                Foreground="{DynamicResource TextMuted}"/>
-                                    <TextBlock x:Name="GrowthEngagementText" Text="—"
+                                    <TextBlock x:Name="GrowthEngagementText" Text="â€”"
                                                FontSize="24" FontWeight="Bold"
                                                Foreground="{DynamicResource TextPrimary}"/>
                                 </StackPanel>
@@ -495,7 +495,7 @@
                                 <StackPanel>
                                     <TextBlock Text="{loc:Text growth_records}"
                                                Foreground="{DynamicResource TextMuted}"/>
-                                    <TextBlock x:Name="GrowthRecordsText" Text="—"
+                                    <TextBlock x:Name="GrowthRecordsText" Text="â€”"
                                                FontSize="24" FontWeight="Bold"
                                                Foreground="{DynamicResource TextPrimary}"/>
                                 </StackPanel>

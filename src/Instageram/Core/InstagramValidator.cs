@@ -13,7 +13,7 @@ public static class InstagramValidator
 
         if (string.IsNullOrWhiteSpace(value))
         {
-            message = "آدرس Instagram را وارد کنید.";
+            message = "Ø¢Ø¯Ø±Ø³ Instagram Ø±Ø§ ÙˆØ§Ø±Ø¯ Ú©Ù†ÛŒØ¯.";
             return false;
         }
 
@@ -27,14 +27,14 @@ public static class InstagramValidator
 
         if (!Uri.TryCreate(url, UriKind.Absolute, out var uri))
         {
-            message = "URL معتبر نیست.";
+            message = "URL Ù…Ø¹ØªØ¨Ø± Ù†ÛŒØ³Øª.";
             return false;
         }
 
         if (uri.Host.ToLowerInvariant() != "instagram.com" &&
             uri.Host.ToLowerInvariant() != "www.instagram.com")
         {
-            message = "فقط URL معتبر instagram.com پذیرفته می‌شود.";
+            message = "ÙÙ‚Ø· URL Ù…Ø¹ØªØ¨Ø± instagram.com Ù¾Ø°ÛŒØ±ÙØªÙ‡ Ù…ÛŒâ€ŒØ´ÙˆØ¯.";
             return false;
         }
 
@@ -42,7 +42,7 @@ public static class InstagramValidator
 
         if (string.IsNullOrWhiteSpace(part) || !Regex.IsMatch(part, "^[A-Za-z0-9._]{1,30}$"))
         {
-            message = "Username معتبر در URL پیدا نشد.";
+            message = "Username Ù…Ø¹ØªØ¨Ø± Ø¯Ø± URL Ù¾ÛŒØ¯Ø§ Ù†Ø´Ø¯.";
             return false;
         }
 

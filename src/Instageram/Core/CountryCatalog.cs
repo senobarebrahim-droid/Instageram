@@ -40,17 +40,17 @@ public static class CountryCatalog
 {
     private static readonly CountryEntry[] Defaults =
     {
-        new() { Code = "IR", NameFa = "ایران",             NameEn = "Iran",                  IsTargetMarket = true, Priority = 1 },
-        new() { Code = "US", NameFa = "ایالات متحده",      NameEn = "United States",         Priority = 2 },
-        new() { Code = "DE", NameFa = "آلمان",             NameEn = "Germany",               Priority = 3 },
-        new() { Code = "FR", NameFa = "فرانسه",            NameEn = "France",                Priority = 4 },
-        new() { Code = "TR", NameFa = "ترکیه",             NameEn = "Turkey",                Priority = 5 },
-        new() { Code = "GB", NameFa = "بریتانیا",          NameEn = "United Kingdom",        Priority = 6 },
-        new() { Code = "CA", NameFa = "کانادا",            NameEn = "Canada",                Priority = 7 },
-        new() { Code = "AE", NameFa = "امارات",            NameEn = "United Arab Emirates",  Priority = 8 },
-        new() { Code = "ID", NameFa = "اندونزی",           NameEn = "Indonesia",             Priority = 9 },
-        new() { Code = "IN", NameFa = "هند",               NameEn = "India",                 Priority = 10 },
-        new() { Code = "AU", NameFa = "استرالیا",          NameEn = "Australia",             Priority = 11 }
+        new() { Code = "IR", NameFa = "Ø§ÛŒØ±Ø§Ù†",             NameEn = "Iran",                  IsTargetMarket = true, Priority = 1 },
+        new() { Code = "US", NameFa = "Ø§ÛŒØ§Ù„Ø§Øª Ù…ØªØ­Ø¯Ù‡",      NameEn = "United States",         Priority = 2 },
+        new() { Code = "DE", NameFa = "Ø¢Ù„Ù…Ø§Ù†",             NameEn = "Germany",               Priority = 3 },
+        new() { Code = "FR", NameFa = "ÙØ±Ø§Ù†Ø³Ù‡",            NameEn = "France",                Priority = 4 },
+        new() { Code = "TR", NameFa = "ØªØ±Ú©ÛŒÙ‡",             NameEn = "Turkey",                Priority = 5 },
+        new() { Code = "GB", NameFa = "Ø¨Ø±ÛŒØªØ§Ù†ÛŒØ§",          NameEn = "United Kingdom",        Priority = 6 },
+        new() { Code = "CA", NameFa = "Ú©Ø§Ù†Ø§Ø¯Ø§",            NameEn = "Canada",                Priority = 7 },
+        new() { Code = "AE", NameFa = "Ø§Ù…Ø§Ø±Ø§Øª",            NameEn = "United Arab Emirates",  Priority = 8 },
+        new() { Code = "ID", NameFa = "Ø§Ù†Ø¯ÙˆÙ†Ø²ÛŒ",           NameEn = "Indonesia",             Priority = 9 },
+        new() { Code = "IN", NameFa = "Ù‡Ù†Ø¯",               NameEn = "India",                 Priority = 10 },
+        new() { Code = "AU", NameFa = "Ø§Ø³ØªØ±Ø§Ù„ÛŒØ§",          NameEn = "Australia",             Priority = 11 }
     };
 
     private static IReadOnlyList<CountryEntry> _all = Sort(Defaults);

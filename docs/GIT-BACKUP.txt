@@ -1,4 +1,4 @@
-﻿Backing up this project to GitHub
+Backing up this project to GitHub
 ==================================
 
 One-time setup

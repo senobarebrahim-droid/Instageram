@@ -62,7 +62,7 @@ public static class DatabaseHealth
     /// <summary>
     /// Opens a file for reading its header without fighting whoever else has it
     /// open. A plain File.OpenRead only shares Read, so it fails with "being
-    /// used by another process" as soon as a SQLite connection holds the file —
+    /// used by another process" as soon as a SQLite connection holds the file â€”
     /// which would make a perfectly healthy database look unreadable.
     /// </summary>
     private static FileStream OpenForPeek(string path) =>

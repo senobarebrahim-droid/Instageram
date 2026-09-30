@@ -81,7 +81,7 @@ public class ReportWriterTests
 
         ReportWriter.WriteHtml(
             path,
-            "گزارش کمپین‌ها",
+            "Ú¯Ø²Ø§Ø±Ø´ Ú©Ù…Ù¾ÛŒÙ†â€ŒÙ‡Ø§",
             SampleTable(),
             Array.Empty<KeyValuePair<string, string>>());
 
@@ -91,7 +91,7 @@ public class ReportWriterTests
             bytes.Length >= 3 && bytes[0] == 0xEF && bytes[1] == 0xBB && bytes[2] == 0xBF,
             "a BOM would break some browsers and the print pipeline");
 
-        Assert.Contains("گزارش کمپین‌ها", File.ReadAllText(path));
+        Assert.Contains("Ú¯Ø²Ø§Ø±Ø´ Ú©Ù…Ù¾ÛŒÙ†â€ŒÙ‡Ø§", File.ReadAllText(path));
     }
 
     [Fact]

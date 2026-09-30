@@ -7,7 +7,7 @@ namespace Instageram;
 /// application.
 ///
 /// Every colour in MainWindow.xaml is a DynamicResource key, so swapping the
-/// dictionary updates the whole window immediately — no restart needed.
+/// dictionary updates the whole window immediately â€” no restart needed.
 /// </summary>
 public static class ThemeService
 {

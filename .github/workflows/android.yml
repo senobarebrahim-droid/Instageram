@@ -1,4 +1,4 @@
-name: Build Android APK
+﻿name: Build Android APK
 
 on:
   workflow_dispatch:
@@ -12,16 +12,24 @@ jobs:
 
     - uses: actions/setup-dotnet@v4
       with:
-        dotnet-version: 8.0.425
+        dotnet-version: 8.0.x
 
-    - name: Install Android workload
-      run: dotnet workload install maui-android
+    - name: Install MAUI Android
+      run: |
+        dotnet workload install maui-android
+
+    - name: Install Android SDK tools
+      uses: android-actions/setup-android@v3
+
+    - name: Install Android packages
+      run: |
+        sdkmanager "platform-tools" "platforms;android-35" "build-tools;35.0.0"
 
     - name: Build APK
       run: |
         cd Instageram.Android
         dotnet restore
-        dotnet publish -f net8.0-android -c Release -p:AndroidPackageFormat=apk
+        dotnet publish -c Release -f net8.0-android -p:AndroidPackageFormat=apk
 
     - name: Upload APK
       uses: actions/upload-artifact@v4

@@ -1,4 +1,4 @@
-// Phase 4: extracted from MainWindow.xaml.cs. Behaviour is unchanged;
+﻿// Phase 4: extracted from MainWindow.xaml.cs. Behaviour is unchanged;
 // this file only groups one responsibility so the code stays maintainable.
 using Microsoft.Data.Sqlite;
 using System.Data;
@@ -343,7 +343,7 @@ public static Summary GetSummary()
         {
             Projects = reader.GetInt64(0),
             Campaigns = reader.GetInt64(1),
-            هدف = reader.GetInt64(2),
+            Ù‡Ø¯Ù = reader.GetInt64(2),
             Target = reader.GetInt64(2),
             Current = reader.GetInt64(3)
         };
@@ -529,7 +529,7 @@ public static Summary GetSummary()
             {
                 Id = id,
                 ProjectId = projectId,
-                Label = $"#{id} · {name} (@{username})"
+                Label = $"#{id} Â· {name} (@{username})"
             });
         }
 

@@ -1,0 +1,1 @@
+{"architecture":"amd64","base_name":"minimax-m2.7","capabilities":["completion","tools","thinking"],"context_length":196608,"embedding_length":3072,"file_type":"","model_type":"229B","os":"linux","remote_host":"https://ollama.com","remote_model":"minimax-m2.7","rootfs":{"diff_ids":[],"type":"layers"}}

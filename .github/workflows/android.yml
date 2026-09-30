@@ -15,8 +15,7 @@ jobs:
         dotnet-version: 8.0.x
 
     - name: Install Android workload
-      run: |
-        dotnet workload install maui-android
+      run: dotnet workload install maui-android
 
     - name: Build APK
       run: |
